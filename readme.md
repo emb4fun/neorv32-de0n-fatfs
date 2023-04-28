@@ -32,5 +32,5 @@ This time there is no further description but only this small readme available.
 | FPGA     | Cyclone IV `EP4CE22F17C6N` |
 | Quartus  | 15.0.2         |
 | clk_i    | 100 MHz        |
-| Terminal | 115200, 8, N, 1 |
+| Terminal | 19200, 8, N, 1 |
 
