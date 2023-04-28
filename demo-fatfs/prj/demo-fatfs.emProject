@@ -1,0 +1,94 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="demo-fatfs" target="20" version="2">
+  <configuration Name="Debug" hidden="Yes" />
+  <configuration Name="Release" hidden="Yes" />
+  <configuration Name="SDRAM" hidden="Yes" />
+  <configuration Name="SDRAM Debug" inherited_configurations="SDRAM;Debug" />
+  <configuration
+    Name="SDRAM Release"
+    inherited_configurations="SDRAM;Release" />
+  <project Name="demo-fatfs">
+    <configuration
+      Name="Common"
+      RISCV_TOOLCHAIN_VARIANT="Standard"
+      arm_compiler_variant="gcc"
+      arm_linker_no_warn_on_rwx_segments="Yes"
+      arm_linker_variant="GNU"
+      arm_rtl_variant="SEGGER"
+      arm_supply_absolute_file_path="No"
+      build_generic_options_file_name=""
+      build_intermediate_directory="$(Configuration)"
+      build_output_directory="$(Configuration)"
+      c_additional_options="-Wall;-Werror"
+      c_preprocessor_definitions=""
+      c_user_include_directories="..\\..\\fpga\\src\\neorv32\\sw\\lib\\include;..\\library\\tal\\core\\inc;..\\library\\fatfs\\src;..\\fatfs\\src;..\\inc"
+      debug_register_definition_file="$(ProjectDir)/../../hw/src/neorv32/sw/svd/neorv32.svd"
+      debug_target_connection="J-Link"
+      heap_size="256"
+      linker_memory_map_file="$(ProjectDir)/neorv32_MemoryMap.xml"
+      linker_printf_fmt_level="long"
+      linker_printf_fp_enabled="Float"
+      linker_printf_width_precision_supported="Yes"
+      linker_section_placement_file="$(ProjectDir)/tcm_placement_riscv.xml"
+      linker_section_placements_segments=""
+      project_directory=""
+      project_type="Executable"
+      rv_abi="ilp32"
+      rv_architecture="rv32imc"
+      rv_debug_extensions="None"
+      rv_toolchain_prefix=""
+      stack_size="2048"
+      target_device_name="RV32"
+      target_reset_script="Reset()"
+      target_script_file="$(ProjectDir)/neorv32_Target.js" />
+    <configuration Name="Debug" c_preprocessor_definitions="__DEBUG__" />
+    <configuration
+      Name="Release"
+      c_preprocessor_definitions="__RELEASE__"
+      gcc_optimization_level="Level 3 for more speed"
+      link_time_optimization="Yes"
+      linker_output_format="bin" />
+    <configuration
+      Name="SDRAM"
+      c_preprocessor_definitions="__SDRAM__"
+      linker_section_placement_file="$(ProjectDir)/placement_sdram_riscv.xml" />
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <folder Name="fatfs" />
+      <folder Name="library">
+        <folder Name="fatfs">
+          <file file_name="../library/fatfs/src/ff.c" />
+          <file file_name="../library/fatfs/src/ffunicode.c" />
+        </folder>
+        <folder Name="neorv32">
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_cfs.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_cpu.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_gpio.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_gptmr.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_mtime.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_neoled.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_pwm.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_rte.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_spi.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_trng.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_twi.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_uart.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_wdt.c" />
+          <file file_name="../../fpga/src/neorv32/sw/lib/source/neorv32_xirq.c" />
+        </folder>
+        <folder Name="tal">
+          <folder Name="core">
+            <file file_name="../library/tal/core/src/talmem.c" />
+          </folder>
+        </folder>
+      </folder>
+      <folder Name="src">
+        <file file_name="../src/fatfs_diskio_spi.c" />
+        <file file_name="../src/main.c" />
+      </folder>
+    </folder>
+    <folder Name="System Files">
+      <file file_name="my_riscv_crt0.s" />
+    </folder>
+  </project>
+</solution>

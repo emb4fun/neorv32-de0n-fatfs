@@ -22,6 +22,7 @@ Read :  1.40 MB/s
 Benchmark end.
 
 SEGGER Embedded Studio for RISC-V was used as the development environment.
+This time there is no further description but only this small readme available.
 
 
 #### Project information:
