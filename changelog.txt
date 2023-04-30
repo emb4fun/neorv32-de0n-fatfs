@@ -2,7 +2,7 @@
 * Project: neorv32-de0n-fatfs
 * Name   : "NEORV32 and a generic FAT file system called FatFs.
 * Target : DE0-Nano with NEORV32
-* Version: 20230428
+* Version: 20230430
 ***************************************************************************
 * Tools  : SEGGER Embedded Studio for RISC-V v7.12a
 ***************************************************************************
@@ -11,7 +11,10 @@
 * Note:  : ---
 ***************************************************************************
 
-= Version 28.04.2023
+= 30.04.2023
+   * Added TinyCTS/AL version too.
+
+= 28.04.2023
    * First public version.
 
 ***************************************************************************
